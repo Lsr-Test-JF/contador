@@ -14,7 +14,7 @@ const fallbackMessages = [
   "Todo esse tempo ao seu lado só me faz ver o quanto conquistamos",
   "(Ganhou um Vale passeio de motinha kkkkk)",
   "Quem diria que aquela menininha ia se tornar essa Mulher de hoje em dia ❤️",
-  "Eu te amo Meu amor e não da para explicar",
+  "Eu te amo Meu amor e não da para explicar"
 ];
 
 const fallbackMemories = [
@@ -134,7 +134,7 @@ function renderYearCard(year) {
   } else {
     const { years, months, days } = diffYMD(now, targetDate);
     content = `
-      <p>Faltam só isso:</p>
+      <p>Falta só isso:</p>
       <div class="countdown" role="list" aria-label="Contagem para ${year}">
         <div class="countdown__item" role="listitem"><span class="countdown__value">${years}</span><span class="countdown__label">anos</span></div>
         <div class="countdown__item" role="listitem"><span class="countdown__value">${months}</span><span class="countdown__label">meses</span></div>
@@ -165,7 +165,7 @@ function bindToggle() {
   toggleFutureBtn.addEventListener("click", () => {
     futureExpanded = !futureExpanded;
     hiddenCards.forEach((card) => card.classList.toggle("show", futureExpanded));
-    toggleFutureBtn.textContent = futureExpanded ? "Ocultar" : "Exibir mais datas";
+    toggleFutureBtn.textContent = futureExpanded ? "Ocultar" : "Mais datas";
     toggleFutureBtn.setAttribute("aria-expanded", String(futureExpanded));
   });
 }

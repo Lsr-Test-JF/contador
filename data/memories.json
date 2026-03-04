@@ -1,20 +1,20 @@
 [
   {
     "title": "Nosso começo",
-    "text": "Escreva aqui como tudo começou.",
-    "image": "assets/images/foto-1.jpg",
-    "imageLabel": "Substitua pela foto 1"
+    "text": "Nossa primeira fotinha juntos.",
+    "image": "data/comeco.jpg",
+    "imageLabel": ""
   },
   {
     "title": "Memória favorita",
-    "text": "Coloque aqui uma lembrança inesquecível.",
-    "image": "assets/images/foto-2.jpg",
-    "imageLabel": "Substitua pela foto 2"
+    "text": "Minha menininha se tornando uma Mulher.",
+    "image": "data/importante.jpg",
+    "imageLabel": ""
   },
   {
     "title": "Próxima aventura",
-    "text": "Planeje aqui o próximo aniversário juntos.",
-    "image": "assets/images/foto-3.jpg",
-    "imageLabel": "Substitua pela foto 3"
+    "text": "Qual vai ser nossa proxima aventura?",
+    "image": "data/aventura.jpg",
+    "imageLabel": ""
   }
 ]
