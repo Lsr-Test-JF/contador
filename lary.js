@@ -5,16 +5,22 @@ const ANNIVERSARY_MONTH = 2;
 const ANNIVERSARY_DAY = 7;
 
 const fallbackMessages = [
-  "Você é meu melhor encontro diário ❤️",
-  "Cada 07 de março me lembra como foi incrível te conhecer.",
-  "Nosso amor floresce como girassol ao sol 🌻",
-  "Com você, até os dias comuns viram lembranças especiais.",
+  "Amo estar ao seu lado minha neguinha ❤️",
+  "Tanta correria que mesmo quando a gente lembra do dia 7 em cima da hora nós sempre fazemos ser o melhor dia ",
+  "Nosso amor floresce igual um girassol ao sol 🌻 (se caiu essa menagem pode me cobrar um girassol kkkkkk)",
+  "Eu e Nossa filha Lola te amamos muito",
+  "Você é meu maior amor ❤️",
+  "Cada loucura ao seu lado me lembra o porque eu escolhi estar contigo.",
+  "Todo esse tempo ao seu lado só me faz ver o quanto conquistamos",
+  "(Ganhou um Vale passeio de motinha kkkkk)",
+  "Quem diria que aquela menininha ia se tornar essa Mulher de hoje em dia ❤️",
+  "Eu te amo Meu amor e não da para explicar",
 ];
 
 const fallbackMemories = [
-  { title: "Nosso começo", text: "Escreva aqui como tudo começou.", image: "", imageLabel: "Substitua pela foto 1" },
-  { title: "Memória favorita", text: "Coloque aqui uma lembrança inesquecível.", image: "", imageLabel: "Substitua pela foto 2" },
-  { title: "Próxima aventura", text: "Planeje aqui o próximo aniversário juntos.", image: "", imageLabel: "Substitua pela foto 3" },
+  { title: "Nosso começo", text: "Nossa primeira fotinha juntos.", image: "data/comeco.jpg", imageLabel: "" },
+  { title: "Memória importante", text: "Minha menininha se tornando uma Mulher.", image: "data/importante.jpg", imageLabel: "" },
+  { title: "Algumas aventuras", text: "Qual vai ser nossa proxima aventura?", image: "data/aventura.jpg", imageLabel: "" },
 ];
 
 const timelineGrid = document.querySelector("#timeline-grid");
@@ -53,9 +59,9 @@ async function loadData() {
       if (isValidArray(loadedMemories)) {
         memories = loadedMemories.map((item, index) => ({
           title: item.title || `Memória ${index + 1}`,
-          text: item.text || "Edite este texto com sua lembrança.",
+          text: item.text || ".",
           image: item.image || "",
-          imageLabel: item.imageLabel || `Substitua pela foto ${index + 1}`,
+          imageLabel: item.imageLabel || ` ${index + 1}`,
         }));
       }
     }
@@ -100,7 +106,7 @@ function getUpcomingAnniversary() {
 
 function renderSummary() {
   const { target, diff } = getUpcomingAnniversary();
-  nextAnniversaryEl.textContent = `Próximo aniversário: ${formatDateBR(target)} · faltam ${diff.years} ano(s), ${diff.months} mês(es) e ${diff.days} dia(s).`;
+  nextAnniversaryEl.textContent = `Próximo aniversário: ${formatDateBR(target)} | Faltam ${diff.years} ano(s), ${diff.months} mês(es) e ${diff.days} dia(s).`;
 }
 
 function renderYearCard(year) {
@@ -116,19 +122,19 @@ function renderYearCard(year) {
   }
 
   const statusBadge = isPast
-    ? '<span class="badge badge--ok" aria-label="Data já passou">✔ Já passou</span>'
-    : '<span class="badge badge--pending" aria-label="Data futura">⏳ Aguardando</span>';
+    ? '<span class="badge badge--ok" aria-label="Data já passou">✔ Já Comemoramos</span>'
+    : '<span class="badge badge--pending" aria-label="Data futura">⏳ Esperando</span>';
 
   let content = "";
   if (isPast) {
     const celebration = anniversaryIndex === 0
-      ? "Ano de início do namoro celebrado."
-      : `${anniversaryIndex}º aniversário celebrado. Hora de comemorar!`;
+      ? "Comecinho do nosso namoro."
+      : `${anniversaryIndex}º aniversário de namoro.`;
     content = `<p>✅ ${celebration}</p>`;
   } else {
     const { years, months, days } = diffYMD(now, targetDate);
     content = `
-      <p>Faltam para esta data:</p>
+      <p>Faltam só isso:</p>
       <div class="countdown" role="list" aria-label="Contagem para ${year}">
         <div class="countdown__item" role="listitem"><span class="countdown__value">${years}</span><span class="countdown__label">anos</span></div>
         <div class="countdown__item" role="listitem"><span class="countdown__value">${months}</span><span class="countdown__label">meses</span></div>
@@ -159,7 +165,7 @@ function bindToggle() {
   toggleFutureBtn.addEventListener("click", () => {
     futureExpanded = !futureExpanded;
     hiddenCards.forEach((card) => card.classList.toggle("show", futureExpanded));
-    toggleFutureBtn.textContent = futureExpanded ? "Ocultar anos 2028 a 2040" : "Exibir anos 2028 a 2040";
+    toggleFutureBtn.textContent = futureExpanded ? "Ocultar" : "Exibir mais datas";
     toggleFutureBtn.setAttribute("aria-expanded", String(futureExpanded));
   });
 }
@@ -191,7 +197,7 @@ function bindRandomMessage() {
   drawMessageBtn.addEventListener("click", () => {
     drawMessageBtn.disabled = true;
     messageStatusEl.classList.add("is-loading");
-    messageStatusEl.textContent = "Buscando mensagem...";
+    messageStatusEl.textContent = "Ta buscando morzinho, é muita mensagem...";
 
     window.setTimeout(() => {
       const randomMessage = messages[Math.floor(Math.random() * messages.length)];
